@@ -67,8 +67,20 @@ public class Sightings implements SightingsManagement{
 
     @Override
     public void save() {
+        String sql = "INSERT INTO sightings (animalId, location, ranger, timestamp) VALUES (:animalId, :location, :ranger, now());";
+        System.out.println("INSERT INTO sightings (animalId, location, ranger, timestamp) VALUES (:animalId, :location, :ranger, now());");
+        try (Connection con = DB.sql2o.open()) {
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("animalId", this.animalId)
+                    .addParameter("location", this.location)
+                    .addParameter("ranger", this.ranger)
+                    .executeUpdate()
+                    .getKey();
+        }
 
     }
+
+
 
     @Override
     public void delete() {
