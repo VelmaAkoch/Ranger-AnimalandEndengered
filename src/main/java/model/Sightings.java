@@ -90,6 +90,15 @@ public class Sightings implements SightingsManagement{
         }
     }
 
+    public static List<Sightings> allByAnimal(int animalId) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM sightings WHERE animalId = :animalId ORDER BY timestamp DESC";
+            return con.createQuery(sql)
+                    .addParameter("animalId", animalId)
+                    .executeAndFetch(Sightings.class);
+        }
+    }
+
 
 
     @Override
