@@ -108,6 +108,20 @@ public class Sightings implements SightingsManagement{
         }
     }
 
+    public static Sightings find(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM sightings WHERE id=:id;";
+            Sightings sighting = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Sightings.class);
+            return sighting;
+        } catch (IndexOutOfBoundsException exception) {
+            return null;
+        }
+    }
+
+
+
 
 
     @Override
