@@ -46,6 +46,11 @@ public class EndangeredAnimalDAO implements EndangeredAnimalManagement{
     }
 
     @Override
+    public List<EndangeredAnimal> getEndangeredAnimalId(int id) {
+        return null;
+    }
+
+    @Override
     public EndangeredAnimal getEndangeredAnimalById(int id) {
         getDrivers();
         try(Connection con = DB.sql2o.open()) {
