@@ -12,7 +12,6 @@ public class ThrivingAnimalDAO implements ThrivingAnimalManagement {
 
     @Override
     public void add(ThrivingAnimal thrivingAnimal) {
-        //add by inserting to database
         getDrivers();
         try(Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO animals (animalName, animalType) VALUES (:animalName, :animalType)";
@@ -28,10 +27,42 @@ public class ThrivingAnimalDAO implements ThrivingAnimalManagement {
 
     }
 
+    @Override
+    public void update(ThrivingAnimal thrivingAnimal) {
 
+    }
 
+    @Override
+    public ThrivingAnimal getThrivingAnimalById(int id) {
+        getDrivers();
+        try(Connection con = DB.sql2o.open()) {
+            return con.createQuery("SELECT * FROM animals WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(ThrivingAnimal.class);
+        }
 
+    }
 
+    @Override
+    public List<ThrivingAnimal> getThrivingAnimals() {
+        getDrivers();
+        try(Connection con = DB.sql2o.open()){
+            return con.createQuery(" SELECT * FROM animals")
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(ThrivingAnimal.class);
 
+        }
+
+    }
+
+    @Override
+    public void deleteThrivingAnimal(int id) {
+
+    }
+
+    @Override
+    public void deleteAllThrivingAnimals() {
+
+    }
 
 }
