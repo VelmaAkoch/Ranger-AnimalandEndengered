@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public class ThrivingAnimalDAO implements ThrivingAnimalManagement {
     public void getDrivers() {

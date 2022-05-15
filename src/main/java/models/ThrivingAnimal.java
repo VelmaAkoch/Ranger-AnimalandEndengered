@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public class ThrivingAnimal extends Animal{
     public static final String ANIMAL_TYPE = "ThrivingAnimal";

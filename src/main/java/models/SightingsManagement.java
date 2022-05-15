@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public interface SightingsManagement {
     public void save();

@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public class EndangeredAnimal extends Animal {
     public String health;

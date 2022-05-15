@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public abstract class Animal {
     public int id;
