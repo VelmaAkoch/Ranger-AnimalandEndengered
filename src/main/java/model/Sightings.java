@@ -80,6 +80,16 @@ public class Sightings implements SightingsManagement{
 
     }
 
+    public static List<Sightings> all() {
+        String sql = "SELECT * FROM sightings ORDER BY timestamp DESC;";
+
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Sightings.class);
+        }
+    }
+
 
 
     @Override
