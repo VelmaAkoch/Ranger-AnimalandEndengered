@@ -99,6 +99,15 @@ public class Sightings implements SightingsManagement{
         }
     }
 
+    public boolean equals(Object otherSighting){
+        if(!(otherSighting instanceof Sightings)){
+            return false;
+        }else{
+            Sightings newSighting = (Sightings) otherSighting;
+            return this.getAnimalId()==newSighting.getAnimalId() && this.getRanger().equals(newSighting.getRanger());
+        }
+    }
+
 
 
     @Override
