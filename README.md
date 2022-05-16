@@ -20,7 +20,6 @@ You need to have the following installed on your machine
 To access this project on your local files, you can clone it using these steps
 
 Open your terminal
-Use this command to clone `$ git clone https://github.com/MutheuLinet/animal-tracker.git
 This will clone the repository into your local folder
 Navigate to the folder you cloned into, within src/main/java/App. java and open it with intellij.
 Go to your browser and type localhost:4567
