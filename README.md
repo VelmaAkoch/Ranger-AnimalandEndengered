@@ -17,37 +17,37 @@ You need to have the following installed on your machine
 -Java IDE (Intellij)
 
 ## Setup and Installation
-To access this project on your local files, you can clone it using these steps
 
-1.Open your terminal
-2.Use this command to clone $ git clone https://github.com/VelmaAkoch/Ranger-AnimalandEndengered.git.
-3.This will clone the repository into your local folderl.
-4.Navigate to the folder you cloned into, within src/main/java/App. java and open it with intellij.
-5.Go to your browser and type localhost:4567
+-To access this project on your local files, you can clone it using these steps
+-Open your terminal.
+-Use this command to clone $ git clone https://github.com/VelmaAkoch/Ranger-AnimalandEndengered.git.
+-This will clone the repository into your local folderl.
+-Navigate to the folder you cloned into, within src/main/java/App. java and open it with intellij.
+-Go to your browser and type localhost:4567
 
 ## Contribution
-You may also want to contribute to enhance a functionality:
 
-1.Fork the repository to your GitHub account
-2.Create a new branch (git switch -c ft-development)
-3.Make the changes you intend
-4.Add changes to reflect the changes made
-5.Commit your changes (git commit -m 'additional info')
-6.Push to the branch (git push origin ft-develop)
-7.Create a Pull Request.
+-You may also want to contribute to enhance a functionality:
+-Fork the repository to your GitHub account
+-Create a new branch (git switch -c ft-development)
+-Make the changes you intend
+-Add changes to reflect the changes made
+-Commit your changes (git commit -m 'additional info')
+-Push to the branch (git push origin ft-develop)
+-Create a Pull Request.
 
 ## Behavior Driven Development
 The user is able to;
 
-1.Run the App on a browser
-2.Select the Add ThrivingAnimal, EndangeredAnimal or Sighting tab which will open a form to fill.
-3.View the ThrivingAnimal, EndangeredAnimal or Sighting details.
-4.Add edit or delete more ThrivingAnimals, EndangeredAnimals or Sightings as possible (It also allows a user to Test the output before actual running of the App)
+-Run the App on a browser
+-Select the Add ThrivingAnimal, EndangeredAnimal or Sighting tab which will open a form to fill.
+-View the ThrivingAnimal, EndangeredAnimal or Sighting details.
+-Add edit or delete more ThrivingAnimals, EndangeredAnimals or Sightings as possible (It also allows a user to Test the output before actual running of the App)
 
 ## Running Tests
 
-1.Navigate to the folder you cloned into, within src/test/java/models and open it with intellij. Select the EndangeredAnimalTests, ThrivingAnimalTests or SightingsTests.
-2.This is a sample test to check a correct instance of the EndangeredAnimal, ThrivingAnimal and Sightings objects.
+-Navigate to the folder you cloned into, within src/test/java/models and open it with intellij. Select the EndangeredAnimalTests, ThrivingAnimalTests or SightingsTests.
+-This is a sample test to check a correct instance of the EndangeredAnimal, ThrivingAnimal and Sightings objects.
 
 @Test
 
