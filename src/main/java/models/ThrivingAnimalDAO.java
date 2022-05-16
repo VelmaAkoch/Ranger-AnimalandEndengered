@@ -1,5 +1,10 @@
 package models;
 
+import org.sql2o.Connection;
+import org.sql2o.Sql2oException;
+
+import java.util.List;
+
 public class ThrivingAnimalDAO implements ThrivingAnimalManagement {
     public void getDrivers() {
         try {
