@@ -1,7 +1,7 @@
 ## Wildlife Tracker
 
 ## Author
-Velm Mukanga
+By Velma Mukanga
 
 ## Description
 Wildlife tracker is a web application built using java and java-spark framework. The application allows Rangers to track wildlife sightings in the area.
