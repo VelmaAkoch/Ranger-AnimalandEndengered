@@ -10,6 +10,7 @@ import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) {
+        staticFileLocation("/public");
 
         ProcessBuilder process = new ProcessBuilder();
         Integer port;
@@ -21,20 +22,20 @@ public class App {
         }
         port(port);
 
-        staticFileLocation("/public");
 
         //home route
         get("/", (request, response) -> {
-            return modelAndView( new HashMap<>(), "index.hbs");
+            Map<String, Object > model = new HashMap();
+            return new ModelAndView(model,"index.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/about", (request, response) -> {
-            return modelAndView( new HashMap<>(), "about.hbs");
+            return new ModelAndView( new HashMap<>(), "about.hbs");
         }, new HandlebarsTemplateEngine());
 
         //thriving animals form input route
         get("/thriving", (request, response) -> {
-            return modelAndView( new HashMap<>(), "thriving-form.hbs");
+            return new ModelAndView( new HashMap<>(), "thriving-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         //thriving animals form input route for submitting post request
@@ -48,7 +49,8 @@ public class App {
             } catch (IllegalArgumentException exception) {
                 System.out.println("Please enter an animal name.");
             }
-            response.redirect("/animals");
+            EndangeredAnimalDAO endangeredAnimalDAO = new EndangeredAnimalDAO();
+            model.put("eAnimals", endangeredAnimalDAO.getEndangeredAnimals());
             return new ModelAndView(model, "animals.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -59,7 +61,7 @@ public class App {
             model.put("animals", thrivingAnimalDAO.getThrivingAnimals());
             EndangeredAnimalDAO endangeredAnimalDAO = new EndangeredAnimalDAO();
             model.put("eAnimals", endangeredAnimalDAO.getEndangeredAnimals());
-            return modelAndView( model, "animals.hbs");
+            return new ModelAndView( model, "animals.hbs");
         }, new HandlebarsTemplateEngine());
 
         //deleting an animal
@@ -75,7 +77,7 @@ public class App {
 
         //endangered animals form input route
         get("/endangered", (request, response) -> {
-            return modelAndView( new HashMap<>(), "endangered-form.hbs");
+            return new ModelAndView( new HashMap<>(), "endangered-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         //endangered animals form input route for submitting post request
@@ -92,7 +94,8 @@ public class App {
             } catch (IllegalArgumentException exception) {
                 System.out.println("Please enter all details");
             }
-            response.redirect("/animals");
+            EndangeredAnimalDAO endangeredAnimalDAO = new EndangeredAnimalDAO();
+            model.put("eAnimals", endangeredAnimalDAO.getEndangeredAnimals());
             return new ModelAndView(model, "animals.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -104,7 +107,7 @@ public class App {
             EndangeredAnimalDAO endangeredAnimalDAO = new EndangeredAnimalDAO();
             model.put("eAnimals", endangeredAnimalDAO.getEndangeredAnimals());
             model.put("sightings", Sightings.all());
-            return modelAndView( model, "sightings.hbs");
+            return new ModelAndView( model, "sightings.hbs");
         }, new HandlebarsTemplateEngine());
 
         //display animals data in sightings form input route for seen animals
@@ -114,7 +117,7 @@ public class App {
             model.put("animals", thrivingAnimalDAO.getThrivingAnimals());
             EndangeredAnimalDAO endangeredAnimalDAO = new EndangeredAnimalDAO();
             model.put("eAnimals", endangeredAnimalDAO.getEndangeredAnimals());
-            return modelAndView( model, "sightings-form.hbs");
+            return new ModelAndView( model, "sightings-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         //deleting a sighting
@@ -166,14 +169,5 @@ public class App {
             return new ModelAndView(model, "sightings-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-    }
-
-    private static void staticFileLocation(String s) {
-    }
-
-    private static void port(Integer port) {
-    }
-
-    private static void modelAndView(HashMap<Object, Object> objectObjectHashMap, String s) {
     }
 }
