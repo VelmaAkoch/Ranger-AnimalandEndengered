@@ -8,11 +8,7 @@ import java.util.Map;
 import static java.lang.Integer.parseInt;
 import static spark.Spark.*;
 
-
-
-
 public class App {
-
     public static void main(String[] args) {
 
         ProcessBuilder process = new ProcessBuilder();
@@ -170,5 +166,14 @@ public class App {
             return new ModelAndView(model, "sightings-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+    }
+
+    private static void staticFileLocation(String s) {
+    }
+
+    private static void port(Integer port) {
+    }
+
+    private static void modelAndView(HashMap<Object, Object> objectObjectHashMap, String s) {
     }
 }
